@@ -7,6 +7,8 @@ import (
 	"net/http"
 	"netstat_exporter/tcpget"
 	"netstat_exporter/udpget"
+	"netstat_exporter/tcp6get"
+	"netstat_exporter/udp6get"
 )
 
 var strbuff bytes.Buffer
@@ -21,6 +23,8 @@ func metricsHandler(w http.ResponseWriter, req *http.Request) {
 	strbuff.Reset()
 	strbuff.WriteString(tcpget.Init())
 	strbuff.WriteString(udpget.Init())
+	strbuff.WriteString(tcp6get.Init())
+	strbuff.WriteString(udp6get.Init())
 	fmt.Fprintf(w, strbuff.String())
 }
 

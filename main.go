@@ -3,8 +3,9 @@ package main
 import (
 	"bytes"
 	"flag"
-	"fmt"
+	"strconv"
 	"netstat_exporter/httphandler"
+	log "github.com/jeanphorn/log4go"
 )
 
 var strbuff bytes.Buffer
@@ -12,6 +13,6 @@ var strbuff bytes.Buffer
 func main() {
 	listenPort := flag.Int("port", 9119, "Listen port")
 	flag.Parse()
-	fmt.Println(*listenPort)
+	log.Info("Netstat Exporter by mirhmzh running on port :"+strconv.Itoa(*listenPort))
 	httphandler.Init(*listenPort)
 }

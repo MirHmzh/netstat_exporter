@@ -1,4 +1,4 @@
-package	tcpget
+package	tcp6get
 
 import (
 	"bytes"
@@ -8,7 +8,7 @@ import (
 
 func Init() string{
 	var strbuff bytes.Buffer
-	tcps, err := netstat.TCPSocks(netstat.NoopFilter)
+	tcps, err := netstat.TCP6Socks(netstat.NoopFilter)
 	if err != nil {
 		panic(err)
 	}
